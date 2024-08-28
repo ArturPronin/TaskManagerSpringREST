@@ -1,0 +1,217 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.example</groupId>
+    <artifactId>TaskManagerSpringREST</artifactId>
+    <packaging>war</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <name>TaskManagerSpringREST</name>
+    <url>http://maven.apache.org</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <source.version>17</source.version>
+    <target.version>17</target.version>
+
+    <junit-api.version>5.10.2</junit-api.version>
+    <mockito-core.version>5.11.0</mockito-core.version>
+    <hikari-cp.version>5.1.0</hikari-cp.version>
+    <mupstrukt.version>1.5.5.Final</mupstrukt.version>
+    <postgresql.version>42.7.2</postgresql.version>
+    <jackson-core.version>2.17.1</jackson-core.version>
+    <testcontainers.version>1.20.0</testcontainers.version>
+    <slf4j-api.version>2.0.13</slf4j-api.version>
+    <logback.version>1.5.6</logback.version>
+    <jacoco.version>0.8.12</jacoco.version>
+    <maven-compiler.version>3.13.0</maven-compiler.version>
+    <spring-core.version>6.1.10</spring-core.version>
+    <spring-data-jpa.version>3.3.2</spring-data-jpa.version>
+    <hibernate-core.version>6.5.2.Final</hibernate-core.version>
+    <liquibase-core.version>4.29.1</liquibase-core.version>
+    <jakarta.version>6.1.0</jakarta.version>
+    <jayway.version>2.7.0</jayway.version>
+  </properties>
+
+  <dependencies>
+    <!-- Junit 5 -->
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-api</artifactId>
+      <version>${junit-api.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-engine</artifactId>
+      <version>${junit-api.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <!-- Mockito -->
+    <dependency>
+      <groupId>org.mockito</groupId>
+      <artifactId>mockito-core</artifactId>
+      <version>${mockito-core.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.mockito</groupId>
+      <artifactId>mockito-junit-jupiter</artifactId>
+      <version>${mockito-core.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <!-- HikariCP -->
+    <dependency>
+      <groupId>com.zaxxer</groupId>
+      <artifactId>HikariCP</artifactId>
+      <version>${hikari-cp.version}</version>
+    </dependency>
+    <!-- Mapstruct -->
+    <dependency>
+      <groupId>org.mapstruct</groupId>
+      <artifactId>mapstruct</artifactId>
+      <version>${mupstrukt.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.mapstruct</groupId>
+      <artifactId>mapstruct-processor</artifactId>
+      <version>${mupstrukt.version}</version>
+      <scope>provided</scope>
+    </dependency>
+    <!-- Database Driver -->
+    <dependency>
+      <groupId>org.postgresql</groupId>
+      <artifactId>postgresql</artifactId>
+      <version>${postgresql.version}</version>
+    </dependency>
+    <!-- Jackson -->
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <version>${jackson-core.version}</version>
+    </dependency>
+    <!-- Testcontainers -->
+    <dependency>
+      <groupId>org.testcontainers</groupId>
+      <artifactId>testcontainers</artifactId>
+      <version>${testcontainers.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.testcontainers</groupId>
+      <artifactId>junit-jupiter</artifactId>
+      <version>${testcontainers.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.testcontainers</groupId>
+      <artifactId>postgresql</artifactId>
+      <version>${testcontainers.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <!-- slf4j -->
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <version>${slf4j-api.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>ch.qos.logback</groupId>
+      <artifactId>logback-classic</artifactId>
+      <version>${logback.version}</version>
+    </dependency>
+    <!-- Spring Core -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-core</artifactId>
+      <version>${spring-core.version}</version>
+    </dependency>
+    <!-- Spring Core Context -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-context</artifactId>
+      <version>${spring-core.version}</version>
+    </dependency>
+    <!-- Spring MVC -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-webmvc</artifactId>
+      <version>${spring-core.version}</version>
+    </dependency>
+    <!-- Spring Data JPA -->
+    <dependency>
+      <groupId>org.springframework.data</groupId>
+      <artifactId>spring-data-jpa</artifactId>
+      <version>${spring-data-jpa.version}</version>
+    </dependency>
+    <!-- Spring Test -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-test</artifactId>
+      <version>${spring-core.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <!-- Hibernate -->
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-core</artifactId>
+      <version>${hibernate-core.version}</version>
+    </dependency>
+    <!-- Liquibase -->
+    <dependency>
+      <groupId>org.liquibase</groupId>
+      <artifactId>liquibase-core</artifactId>
+      <version>${liquibase-core.version}</version>
+    </dependency>
+    <!-- Jakarta -->
+    <dependency>
+      <groupId>jakarta.servlet</groupId>
+      <artifactId>jakarta.servlet-api</artifactId>
+      <version>${jakarta.version}</version>
+      <scope>provided</scope>
+    </dependency>
+    <!-- JayWay -->
+    <dependency>
+      <groupId>com.jayway.jsonpath</groupId>
+      <artifactId>json-path</artifactId>
+      <version>${jayway.version}</version>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.jacoco</groupId>
+        <artifactId>jacoco-maven-plugin</artifactId>
+        <version>${jacoco.version}</version>
+        <executions>
+          <execution>
+            <id>prepare-agent</id>
+            <goals>
+              <goal>prepare-agent</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>report</id>
+            <phase>verify</phase>
+            <goals>
+              <goal>report</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>${maven-compiler.version}</version>
+        <configuration>
+          <compilerArgs>
+            <arg>-Amapstruct.defaultComponentModel=spring</arg>
+          </compilerArgs>
+          <source>${source.version}</source>
+          <target>${target.version}</target>
+        </configuration>
+      </plugin>
+    </plugins>
+    <finalName>TaskManagerSpringREST</finalName>
+  </build>
+</project>
