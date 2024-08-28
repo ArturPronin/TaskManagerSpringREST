@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="1" author="arturpronin">
+        <createTable tableName="tasks">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="description" type="varchar(255)"/>
+            <column name="title" type="varchar(255)"/>
+            <column name="user_id" type="bigint"/>
+        </createTable>
+        <addForeignKeyConstraint
+                baseTableName="tasks"
+                baseColumnNames="user_id"
+                constraintName="fk6s1ob9k4ihi75xbxe2w0ylsdh"
+                referencedTableName="users"
+                referencedColumnNames="id"/>
+    </changeSet>
+
+    <changeSet id="2" author="arturpronin">
+        <loadData tableName="tasks" file="data/Tasks.csv" relativeToChangelogFile="true"/>
+    </changeSet>
+</databaseChangeLog>
